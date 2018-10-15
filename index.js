@@ -295,7 +295,7 @@ function handleText(message, replyToken, source) {
           return replyText(replyToken, 'foto :'+foto)
 
         }
-      }
+      });
     }
     else {
 
