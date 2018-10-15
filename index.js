@@ -284,7 +284,7 @@ function handleText(message, replyToken, source) {
       method: "GET",
       headers: {
         'Host': 'www.instagram.com',
-        'Cookie': process.env.INSTAGRAM_COOKIE,
+        'Cookie': 'mcd=3; mid=W8HU5wALAAGmXFZ11ez3XOkBt6Uz; csrftoken=1h6gru0YwNY6aAJ1Q2OXu5cVsmb6rMqk; shbid=16129; ds_user_id=4942050544; fbm_124024574287414=base_domain=.instagram.com; sessionid=IGSCc9b8315a98280657befee9954c56318cce97cf6b59f8fb2d4eaa941c07dc6106%3ASKF6KD1SXhxA4HtZzGMub4fYnuolyJUB%3A%7B%22_auth_user_id%22%3A4942050544%2C%22_auth_user_backend%22%3A%22accounts.backends.CaseInsensitiveModelBackend%22%2C%22_auth_user_hash%22%3A%22%22%2C%22_platform%22%3A4%2C%22_token_ver%22%3A2%2C%22_token%22%3A%224942050544%3AAuREozPCI5LIKDZ2NZrLpmDRRBdmaD7r%3Aea660db4d27e2cfb86c9ba9f26242d6c1374e65c25886361c238ea1153623c57%22%2C%22last_refreshed%22%3A1539560340.920060873%7D; rur=FRC; fbsr_124024574287414=OxLuUTcZeDLRr8IgUy6K-PQetCp4RcQOv79nMAroosw.eyJhbGdvcml0aG0iOiJITUFDLVNIQTI1NiIsImNvZGUiOiJBUUFNUU9sX280OEI1OF80RXVFMWp2UFNFWDBEcHdWN0dxVE84Y3poY0lnLU5qZjNVZm1HdHV4cW1WcUpoZVBteXk0QnhMdW9rRzhoa3dVYTY2MVBLMmRERmVBOW5aaUtqSjhiNDVfX3gyMlJUT25rVFVpQmxWckVqdHhXdDJaTm1hUWp6WnYzTkxyamRPT1JOd2dvQjl4amJpUjBhVlBWM1p6VGdZUHpfZUdzbm9LajdZQVlrb01zYzBaUzEyWFFQSVF3VmgteVg1TGx0aVYzZjVTaGhUNW92V2JtQU54MlNMa1pJTUtBT2NrcFlnZjI5ZFdKMUhNYkRIUnFWRUczeVlIbm1JMXplMWl5d2NkTDhMUC1DSV80WE5wWjlFVlNyWlBhUmZQN1o5ZVBDNldjNkpaX1gwanR0dy1XbWdVQVBQcHAwY0lPRXZpX05ObVNrd0lVMEFZWCIsImlzc3VlZF9hdCI6MTUzOTU3MzY1NCwidXNlcl9pZCI6IjEwMDAxNzA2NDIxMTEwMiJ9; urlgen="{\"103.233.100.250\": 133357}:1gBtcH:5qYJ6CV_miBB9cbdhFwhelObgac"',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
       },
       json: true
