@@ -8,7 +8,7 @@ const cp = require('child_process');
 
 // create LINE SDK config from env variables
 const config = {
-  channelAccessToken:"mATUoWNJnCyx7DU3CShw+tbyDEkEw0F12xrjKr8Kz82RdndxEHZZv0qBjKtyIP99Xt5Wt8MGSm8rir1J1LoH0iK10GbOTUS4l5qyMnOh9elzr6afb22uVNGbjnvP2HYF3cRZ503BWrzuQbHf3KRnsgdB04t89/1O/w1cDnyilFU=",
+  channelAccessToken: "mATUoWNJnCyx7DU3CShw+tbyDEkEw0F12xrjKr8Kz82RdndxEHZZv0qBjKtyIP99Xt5Wt8MGSm8rir1J1LoH0iK10GbOTUS4l5qyMnOh9elzr6afb22uVNGbjnvP2HYF3cRZ503BWrzuQbHf3KRnsgdB04t89/1O/w1cDnyilFU=",
   channelSecret: "6b99a6b3f1f02c6585f45c1a38f2e194",
 };
 
@@ -103,21 +103,22 @@ function handleEvent(event) {
 function handleText(message, replyToken, source) {
   const buttonsImageURL = `${baseURL}/static/buttons/1040.jpg`;
 
-  switch (message.text) {
-    case 'profile':
+
+    if (message.text == 'profile'){
       if (source.userId) {
         return client.getProfile(source.userId)
-          .then((profile) => replyText(
-            replyToken,
-            [
-              `Display name: ${profile.displayName}`,
-              `Status message: ${profile.statusMessage}`,
-            ]
-          ));
+        .then((profile) => replyText(
+          replyToken,
+          [
+            `Display name: ${profile.displayName}`,
+            `Status message: ${profile.statusMessage}`,
+          ]
+        ));
       } else {
         return replyText(replyToken, 'Bot can\'t use profile API without user ID');
       }
-    case 'buttons':
+    }
+    else if (message.text == 'buttons') {
       return client.replyMessage(
         replyToken,
         {
@@ -137,7 +138,9 @@ function handleText(message, replyToken, source) {
           },
         }
       );
-    case 'confirm':
+    }
+    else if (message.text == 'confirm'){
+
       return client.replyMessage(
         replyToken,
         {
@@ -153,7 +156,9 @@ function handleText(message, replyToken, source) {
           },
         }
       )
-    case 'carousel':
+    }
+    else if (message.text == 'carousel'){
+
       return client.replyMessage(
         replyToken,
         {
@@ -184,7 +189,9 @@ function handleText(message, replyToken, source) {
           },
         }
       );
-    case 'image carousel':
+    }
+    else if (message.text =='image carousel'){
+
       return client.replyMessage(
         replyToken,
         {
@@ -218,7 +225,9 @@ function handleText(message, replyToken, source) {
           },
         }
       );
-    case 'datetime':
+    }
+    else if (message.text == 'datetime'){
+
       return client.replyMessage(
         replyToken,
         {
@@ -235,7 +244,9 @@ function handleText(message, replyToken, source) {
           },
         }
       );
-    case 'imagemap':
+    }
+    else if (message.text == 'imagemap'){
+
       return client.replyMessage(
         replyToken,
         {
@@ -251,20 +262,25 @@ function handleText(message, replyToken, source) {
           ],
         }
       );
-    case 'bye':
+    }
+    else if (message.text == 'bye'){
+
       switch (source.type) {
         case 'user':
-          return replyText(replyToken, 'Bot can\'t leave from 1:1 chat');
+        return replyText(replyToken, 'Bot can\'t leave from 1:1 chat');
         case 'group':
-          return replyText(replyToken, 'Leaving group')
-            .then(() => client.leaveGroup(source.groupId));
+        return replyText(replyToken, 'Leaving group')
+        .then(() => client.leaveGroup(source.groupId));
         case 'room':
-          return replyText(replyToken, 'Leaving room')
-            .then(() => client.leaveRoom(source.roomId));
+        return replyText(replyToken, 'Leaving room')
+        .then(() => client.leaveRoom(source.roomId));
       }
-    default:
+    }
+    else {
+
       console.log(`Echo message to ${replyToken}: ${message.text}`);
       return replyText(replyToken, message.text);
+    }
   }
 }
 
