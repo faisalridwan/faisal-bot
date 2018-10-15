@@ -7,6 +7,7 @@ const path = require('path');
 const cp = require('child_process');
 const request = require('request'); //HTTP Request
 require('dotenv').config();
+const instagram = require('./instagram.js');
 
 // create LINE SDK config from env variables
 const config = {
@@ -19,6 +20,7 @@ const baseURL = "https://faisal-bot.herokuapp.com";
 
 // create LINE SDK client
 const client = new line.Client(config);
+module.exports.client = client;
 
 // create Express app
 // about Express itself: https://expressjs.com/
@@ -279,28 +281,7 @@ function handleText(message, replyToken, source) {
       }
     }
     else if (message.text.startsWith("ig: ")) {
-      var username = message.text.replace('ig: ','')
-      request({
-      url: 'https://www.instagram.com/' + username + '/?__a=1',
-      method: "GET",
-      headers: {
-        'Host': 'www.instagram.com',
-        'Cookie': process.env.INSTAGRAM_COOKIE,
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-      },
-      json: true
-    }, function (error, response, body){
-        if (body.graphql) {
-          var result = body.graphql.user;
-          let foto = result.profile_pic_url_hd;
-          // return replyText(replyToken, 'foto :'+foto)
-          return client.replyMessage(replyToken, {
-              "type": "image",
-              "originalContentUrl": foto,
-              "previewImageUrl": foto
-          });
-        }
-      });
+        instagram.instagram(replyToken,message.text)
     }
     else if (message.text == 'menu') {
       return replyText(replyToken, 'ig\niglu')//
