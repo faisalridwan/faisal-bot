@@ -1,7 +1,7 @@
 {
-  "name": "kitchensink",
+  "name": "ichalbot",
   "version": "0.0.0",
-  "description": "A kitchen-sink LINE bot example",
+  "description": "A ichalbot",
   "main": "index.js",
   "scripts": {
     "start": "node ."
