@@ -6,11 +6,12 @@ const fs = require('fs');
 const path = require('path');
 const cp = require('child_process');
 const request = require('request'); //HTTP Request
+require('dotenv').config();
 
 // create LINE SDK config from env variables
 const config = {
-  channelAccessToken: 'process.env.ACCESS_TOKEN',
-  channelSecret: 'process.env.SECRET',
+  channelAccessToken: process.env.ACCESS_TOKEN,
+  channelSecret: process.env.SECRET,
 };
 
 // base URL for webhook server
