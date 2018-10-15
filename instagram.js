@@ -1,4 +1,5 @@
 const index = require('./index.js');
+const request = require('request'); //HTTP Request
 module.exports = {
   instagram: function (replyToken, text) {
     var client = index.client;
