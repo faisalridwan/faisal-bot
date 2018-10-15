@@ -2,7 +2,7 @@
   "name": "ichalbot",
   "version": "0.0.0",
   "description": "A ichalbot",
-  "main": "index.js",
+  "main": "ichalbot.js",
   "scripts": {
     "start": "node ."
   },
