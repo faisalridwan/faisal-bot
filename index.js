@@ -292,8 +292,12 @@ function handleText(message, replyToken, source) {
         if (body.graphql) {
           var result = body.graphql.user;
           let foto = result.profile_pic_url_hd;
-          return replyText(replyToken, 'foto :'+foto)
-
+          // return replyText(replyToken, 'foto :'+foto)
+          return client.replyMessage(replyToken, {
+              "type": "image",
+              "originalContentUrl": foto,
+              "previewImageUrl": foto
+          });
         }
       });
     }
