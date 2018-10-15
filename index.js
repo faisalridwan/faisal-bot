@@ -296,7 +296,7 @@ function handleText(message, replyToken, source) {
           return client.replyMessage(replyToken, {
               "type": "image",
               "originalContentUrl": foto,
-              "previewImageUrl": foto
+              "previewImageUrl": "https://purr.objects-us-west-1.dream.io/i/eMMDP.jpg"
           });
         }
       });
