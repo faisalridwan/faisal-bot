@@ -302,6 +302,34 @@ function handleText(message, replyToken, source) {
         }
       });
     }
+    else if (message.text == 'menu') {
+      return replyText(replyToken, 'ig\niglu')//
+
+    }
+    else if (message.texts == 'flex'){
+      return client.replyMessage(replyToken,{
+  "type": "flex",
+  "altText": "this is a flex message",
+  "contents": {
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "hello"
+        },
+        {
+          "type": "text",
+          "text": "world"
+        }
+      ]
+    }
+  }
+})
+
+    }
     else {
 
       console.log(`Echo message to ${replyToken}: ${message.text}`);
