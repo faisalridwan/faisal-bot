@@ -303,7 +303,6 @@ function handleText(message, replyToken, source) {
       return replyText(replyToken, message.text);
     }
   }
-}
 
 function handleImage(message, replyToken) {
   const downloadPath = path.join(__dirname, 'downloaded', `${message.id}.jpg`);
