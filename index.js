@@ -306,7 +306,7 @@ function handleText(message, replyToken, source) {
       return replyText(replyToken, 'ig\niglu')//
 
     }
-    else if (message.texts == 'flex'){
+    else if (message.text == 'flex'){
       return client.replyMessage(replyToken,{
   "type": "flex",
   "altText": "this is a flex message",
