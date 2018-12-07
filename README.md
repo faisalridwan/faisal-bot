@@ -1,4 +1,4 @@
-# Kitchen Sink Bot
+# ICHAL
 
 A kitchen-sink LINE bot example
 
